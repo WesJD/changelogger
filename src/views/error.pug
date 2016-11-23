@@ -1,0 +1,9 @@
+extends base.pug
+block content
+    .container
+        .jumbotron(style="margin-top: 20px")
+            .pull-right
+                span(style="font-size: 1em") powered by #[a(href="https://github.com/WesJD/changelogger") changelogger]
+            h1 Whoops!
+            p Looks like you hit an error:
+                .well.well-sm= error

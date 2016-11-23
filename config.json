@@ -1,0 +1,9 @@
+{
+    "commitsPerPage": 50,
+    "access_token": "myAccessToken",
+    "projects": [
+        "WesJD/OvercastMapPacker",
+        "WesJD/reddit-twitter-bot",
+        "expressjs/express"
+    ]
+}

@@ -1,0 +1,37 @@
+extends base.pug
+mixin pageNumbers
+    nav(aria-label="")
+        ul.pager
+            - var baseLink = "/" + projects.current + "/"
+            if pages.previous != null
+                li.previous #[a(href=baseLink + pages.previous) #[span(aria-hidden="true") &larr;] Newer]
+            else
+                li.previous.disabled #[a #[span(aria-hidden="true") &larr;] Newer]
+            if pages.next != null
+                li.next #[a(href=baseLink + pages.next) Older #[span(aria-hidden="true") &rarr;]]
+            else
+                li.next.disabled #[a Older #[span(aria-hidden="true") &rarr;]]
+block content
+    .container
+        h1
+            .btn-group(role="group")
+                button.btn.btn-default.dropdown-toggle(type="button", data-toggle="dropdown", aria-haspopup="true", aria-expanded="false", style="font-size: .7em")
+                    | #{projects.current}
+                    span.caret
+                ul.dropdown-menu
+                    each proj in projects.other
+                        li #[a(href="/" + proj)= proj]
+            .pull-right
+                span(style="font-size: .5em") powered by #[a(href="https://github.com/WesJD/changelogger") changelogger]
+        hr
+        +pageNumbers
+        each values, date in commits
+            .panel.panel-default
+                .panel-heading(style="font-size: 1.2em")= date
+                .pane-body
+                    ul.list-group(style="margin-bottom: 0")
+                        each commit in values
+                            li.list-group-item
+                                a.pull-right(href=commit.committer.url) #[span.badge= commit.committer.name]
+                                |#[a(href=commit.url)= commit.message]
+        +pageNumbers

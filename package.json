@@ -1,0 +1,16 @@
+{
+  "name": "changelogger",
+  "version": "1.0.0",
+  "description": "Dynamic changelogs by day for GitHub repositories",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Wesley Smith",
+  "license": "MPL-2.0",
+  "dependencies": {
+    "express": "^4.14.0",
+    "node-fetch": "^1.6.3",
+    "pug": "^2.0.0-beta6"
+  }
+}
